@@ -37,7 +37,6 @@ def show_all_pokemons(request):
             pokemon.lon,
             request.build_absolute_uri(pokemon_image.url)
             )
-
     pokemons_on_page = []
     for pokemon in Pokemon.objects.all():
         pokemon_image = pokemon.image.url
