@@ -4,6 +4,8 @@ import json
 from django.http import HttpResponseNotFound
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404
+from numpy.f2py.crackfortran import previous_context
+
 from .models import PokemonEntity, Pokemon
 
 
@@ -83,7 +85,12 @@ def show_pokemon(request, pokemon_id):
             pokemon_entity.lon,
             request.build_absolute_uri(pokemon_image),
             )
-
+    if requested_pokemon.previous_evolution:
+        pokemon['previous_evolution'] = {
+            'title_ru': requested_pokemon.previous_evolution.title_ru,
+            'pokemon_id': requested_pokemon.previous_evolution.id,
+            'img_url': get_image_url(requested_pokemon.previous_evolution.image)
+        }
     return render(request, 'pokemon.html', context={
         'map': folium_map._repr_html_(), 'pokemon': pokemon
     })
