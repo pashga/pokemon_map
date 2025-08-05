@@ -68,6 +68,8 @@ def show_pokemon(request, pokemon_id):
     current_time = timezone.now()
     pokemon = {
         "title_ru": requested_pokemon.title_ru,
+        "title_en": requested_pokemon.title_en,
+        "title_jp": requested_pokemon.title_jp,
         "img_url": get_image_url(requested_pokemon.image),
         "description": requested_pokemon.description
     }
