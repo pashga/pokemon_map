@@ -69,6 +69,7 @@ def show_pokemon(request, pokemon_id):
     pokemon = {
         "title_ru": requested_pokemon.title_ru,
         "img_url": get_image_url(requested_pokemon.image),
+        "description": requested_pokemon.description
     }
     for pokemon_entity in PokemonEntity.objects.filter(
             appeared_at__lte=current_time,
