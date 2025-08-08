@@ -7,6 +7,7 @@ class Pokemon(models.Model):
                                 )
     image = models.ImageField(blank=True,
                               null=True,
+                              upload_to="pokemons_images",
                               verbose_name="Изображение",
                               )
     description = models.TextField(blank=True, verbose_name="Описание")
