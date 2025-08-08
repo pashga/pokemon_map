@@ -46,6 +46,7 @@ class PokemonEntity(models.Model):
     pokemon = models.ForeignKey(Pokemon,
                                 on_delete=models.CASCADE,
                                 verbose_name="Название",
+                                related_name="entities",
                                 )
     level = models.IntegerField(verbose_name="Уровень",
                                 blank=True,
